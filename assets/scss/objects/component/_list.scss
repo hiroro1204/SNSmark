@@ -1,0 +1,249 @@
+@use "../../variables" as v;
+@use "../../functions" as f;
+@use "../../mixins" as m;
+
+// リストのボーダー・グラデーションデザイン
+.list{
+    .list__item{
+        position: relative;
+        padding-bottom: 8px;
+        margin-bottom: 32px;
+
+        &::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px; 
+            background: linear-gradient(to right, v.$primary-color,v.$primary-color-dark f.vw(250px),v.$text-color f.vw(500px));
+        }
+    }
+}
+
+// 会社概要のナビリスト
+
+.company__contents{
+    font-weight: bold;
+    font-size: f.rem(18);
+    height: 80px;
+    padding-left: 32px;
+    background-color: v.$background-color;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top:0px;
+    z-index: 1;
+    @include m.responsive(lg){
+        top:80px;
+    }
+
+    @include m.responsive(sm){
+        font-size: f.rem(16);
+        top:60px;
+        padding-left: 24px;
+    }    
+    
+    .company__contents-list{
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 16px;
+        touch-action: pan-x;
+    }
+
+    .company__contents-title{
+        margin-right: 96px;
+        position: relative;
+
+        &::after{
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0; 
+            border-style: solid;
+            border-color: transparent transparent transparent v.$primary-color;
+            border-width: 9px 0px 9px 15.59px;
+            top: 4.5px;
+            left: calc(100% + f.rem(18));
+        }
+    }
+
+    .company__contents-item{
+        flex:0 0 auto;
+        position: relative;
+        margin-right: 64px;
+
+        &::before{
+            content: "";
+            width: 16px;
+            height: 2px;
+            background-color: v.$primary-color;
+            position: absolute;
+            top:calc(50% - 1px);
+            left: -24px;
+
+        }
+    }
+}
+
+// ニュース・お知らせのリスト
+
+//  ニュース・お知らせのリスト=>矢印のホバーアニメーション
+@keyframes hover-arrow{
+    0%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    
+    50%{
+        opacity: 0;
+        transform: translateX(32px);
+    }
+    
+    51%{
+        opacity: 0;
+        transform: translateX(-32px);
+    }
+    
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+// ニュース・お知らせのリストデザイン
+.news__list{
+    width: 100%;
+    @include m.responsive(md){
+        flex-direction: column;
+    }
+   
+    .news__item{
+        width: 100%;
+        font-weight: bold;
+        border-top:1px solid v.$primary-color;
+        position: relative;
+        @include m.responsive(md){
+            width: 100%;
+        }
+
+        &:last-of-type{
+            border-bottom:1px solid v.$primary-color;
+        }
+    }
+    
+    .news__link{
+        width: 100%;
+        padding:2rem 64px 2rem 0;
+        display: flex;
+        @include m.responsive(sm){
+            flex-direction: column;
+            padding-right: 0;
+        }
+        
+        &::after{
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-image: url('/assets/images/icon_arrow-forward.png');
+            background-position: center;
+            background-size: contain;
+            position: absolute;
+            z-index: -1;
+            top: calc(50% - 12px);
+            right: 32px;
+            @include m.responsive(sm){
+                display: none;
+            }
+        }
+
+        &:hover{
+            &::after{
+                animation: hover-arrow 0.3s ease 0s 1 normal both running ;
+            }
+
+            .news__content::after{
+                transform: scaleX(1);
+                transform-origin: left;
+                opacity: 1;
+            }
+        }
+        
+        &:not(:hover){
+            .news__content::after{
+                transform: scaleX(0);
+                transform-origin: right;
+                opacity: 0;
+                transition: transform 0.2s ease, opacity 0.2s ease 0.2s;
+                
+            }
+        }
+    }
+    
+    .news__content{
+        position: relative;
+        
+        &::after{
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 1px;
+            background-color: v.$secondary-color;
+            left: 0;
+            bottom: -4px;
+            transform: scaleX(0);
+            opacity: 0;
+            transition: transform 0.2s ease, opacity 0.2s ease ;
+            transform-origin: left;            
+        }
+    }
+    
+    .news__date{
+        padding-right: 2rem;
+        display: block;
+        @include m.responsive(sm){
+            margin-bottom: 0.5rem;
+        }
+    }  
+}
+
+// カード型のリスト
+.card{
+    border: 1px solid v.$secondary-color;
+    height: 100%;
+    position: relative;
+    box-shadow: 2px 2px 8px #9babcb;
+
+    &::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 8px;
+        background-color: v.$primary-color;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+
+    }
+    
+    .card-image{
+        height: 50%;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .card-text{
+        padding: 16px 24px 24px 24px;
+        height: 50%;
+    }
+
+    .card-title{
+        font-weight: bold;
+    }
+
+}

@@ -1,0 +1,102 @@
+@use "../../variables" as v;
+@use "../../functions" as f;
+@use "../../mixins" as m;
+
+.accordion {
+    width: 100%;
+    margin: 20px auto;
+    padding: 0;
+    overflow: hidden;
+
+}
+.accordion-item {
+    position: relative;
+    
+    &::after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px; 
+        background: linear-gradient(to right, v.$primary-color,v.$primary-color-dark f.vw(250px),v.$text-color f.vw(500px));
+    }
+}
+
+.accordion-header {
+    padding: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    text-align: left;
+    width: 100%;
+    display: block;
+    outline: none;
+    transition: background 0.3s;    
+    
+    &::before{
+        content: "";
+        position: absolute;
+        background-image: url(/assets/images/icon_arrow-down.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 24px;
+        height: 24px;
+        top:16px;
+        right: 24px;
+    }
+    
+    &:hover {
+        color: v.$primary-color-dark;
+    }
+}
+.accordion-content {
+    display: none;
+    padding: 15px;
+    background: #fff;
+}
+
+.active{
+    & + .accordion-content {
+    display: block;
+    }
+
+    &.accordion-header::before{
+        transform: scaleY(-1);
+    }
+}
+
+.group__content-container{
+    display: flex;
+    @include m.responsive(sm){
+        flex-direction: column;
+        align-items: center;
+    }
+
+    img{
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+    }
+
+    .group__content-body{
+        padding-inline: 5%;
+        @include m.responsive(sm){
+            margin-top: 20px;
+        }
+
+        .group__content-btn{
+            margin-block: 40px;
+            @include m.responsive(sm){
+                text-align: center;
+            }
+
+            .btn{
+                @include m.responsive(sm){
+                    font-size: f.rem(14);
+                }
+            }
+        }
+    }
+}

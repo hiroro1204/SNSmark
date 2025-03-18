@@ -1,0 +1,15 @@
+@use "../variables" as v;
+@use "../functions" as f;
+@use "../mixins" as m;
+
+body{
+    font-family: f.font-family(font-global);
+    background-color: v.$background-color;
+    color: v.$text-color;
+
+    p{
+        @include m.responsive(sm){
+            font-size: f.rem(14);
+        }
+    }
+}

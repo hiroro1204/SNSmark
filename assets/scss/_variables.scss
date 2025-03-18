@@ -1,0 +1,48 @@
+// SPファーストブレイクポイント
+// $breakpoints: (
+//   'xs': (min-width: 0),
+//   'sm': (min-width: 576px),
+//   'md': (min-width: 768px),
+//   'lg': (min-width: 992px),
+//   'xl': (min-width: 1200px),
+//   'xxl': (min-width: 1400px)
+// ) !default;
+
+// PCファーストブレイクポイント
+$breakpoints: (
+  'xxl': (max-width: 1399px),
+  'xl': (max-width: 1199px),
+  'lg': (max-width: 991px),
+  'md': (max-width: 767px),
+  'sm': (max-width: 575px),
+  'xs': (max-width: 0px)
+) !default;
+
+
+// カラーパレット
+$primary-color: #A8E0E0;
+$primary-color-dark:darken($primary-color,15%);
+$primary-color-light:lighten($primary-color,17%);
+$secondary-color: #34495E;
+$background-color: #ffffff;
+$primary-bg-transparent: transparentize($primary-color, 0.15);
+$page-title-color: #ffffff;
+$bg-footer:#F8F8F8;
+$bg-copy:#EBEBEB;
+$bg-btn-inactive:#D7D7D7;
+$text-color: #333;
+$text-color-off: #777777;
+
+// フォント
+$font_basic: "BIZ UDGothic", sans-serif;
+$font_emphasis-ja: "Shippori Mincho", serif;
+$font_emphasis-en: "Cormorant", sans-serif;
+
+$font: (
+    font-global: $font_basic,
+    font-heading: $font_emphasis-en,
+    font-emphasis: $font_emphasis-ja,
+);
+
+// ベースフォントサイズ
+$baseFontSize: 16;

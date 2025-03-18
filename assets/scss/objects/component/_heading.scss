@@ -1,0 +1,100 @@
+@use "../../variables" as v;
+@use "../../functions" as f;
+@use "../../mixins" as m;
+
+
+.section-title--primary{
+    display:flex;
+    align-items: center;
+    
+    .section-title__text--en{
+        font-size: f.rem(32);
+        position: relative;
+        padding-right: f.rem(8);
+        @include m.responsive(sm){
+            font-size: f.rem(24);
+        }
+        
+        &::before{
+            content: "";
+            width:8px;
+            height: 8px;
+            background-color: v.$primary-color;
+            position: absolute;
+            top: calc(50% - f.rem(4) );
+            left: -1rem;
+        }
+    }
+    
+    .section-title__text--jp{
+        font-size: f.rem(16);
+        margin-top: f.rem(8);
+        @include m.responsive(sm){
+            font-size: f.rem(14);
+        }
+
+        &::before{
+            content:"/" ;
+            margin-right: 0.5rem;
+        }
+    }
+    
+    .section-title__text--en{
+        font-family: v.$font_emphasis-en;
+        font-weight: bold;
+    }
+
+    .section-title__line{
+        border-bottom: 2px solid v.$primary-color;
+        flex-grow: 1;
+        margin: f.rem(8) 0 0 f.rem(8)
+    }
+}
+
+
+.subheading{
+    font-family: v.$font_emphasis-ja;
+    font-weight: bold;
+    font-size: f.rem(32);
+    @include m.responsive(xl){
+        font-size: f.rem(24);
+    }
+    @include m.responsive(sm){
+        font-size: f.rem(20);
+    }
+}
+
+.section-title--secondary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .section-title__text--en{
+        font-family: f.font-family(font-heading);
+        font-weight: bold;
+        font-size: f.rem(64);
+        line-height: f.rem(64);
+        @include m.responsive(sm){
+            font-size: f.rem(40);
+            line-height: f.rem(40);
+        }
+    }
+    
+    .section-title__text--ja{
+        font-size: f.rem(20);
+        font-weight: bold;
+        @include m.responsive(xl){
+            font-size: f.rem(18);
+        }
+        @include m.responsive(sm){
+            font-size: f.rem(16);
+        }
+
+    }
+
+    &.guidelines__section-title{
+        .section-title__text--en{
+            text-align: center;
+        }
+    }
+}

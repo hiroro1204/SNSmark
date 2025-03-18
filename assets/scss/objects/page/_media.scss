@@ -1,0 +1,67 @@
+@use "../../variables" as v;
+@use "../../functions" as f;
+@use "../../mixins" as m;
+
+.video-list{
+    margin: 48px auto 48px auto;
+    max-width: 1199px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include m.responsive(sm){
+        justify-content: center;
+    }
+    
+    .video-list__item{
+        width: 45%;
+        @include m.responsive(sm){
+            width: 90%;
+            margin-bottom: 64px;
+        }
+
+        &:hover .video-list__thumbnail img{
+            transform: scale(1.1);
+        }
+    }
+
+    .video-list__thumbnail{
+        overflow: hidden;
+        position: relative;
+
+        &::after{
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 50%;
+            z-index: 1;
+            display: block;
+            width: 25%;
+            height: 25%;
+            background-image: url(/assets/images/icon_movie.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            transform: translate(-50%, -50%);
+        }
+
+        img{
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .video-list__text{
+        margin-top: 1rem;
+
+        .video-list__category{
+            @include m.responsive(sm){
+                font-size: f.rem(16);
+            }
+        }
+        
+        .video-list__title{
+            @include m.responsive(sm){
+                font-size: f.rem(14);
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+@use "../../variables" as v;
+@use "../../functions" as f;
+@use "../../mixins" as m;
+
+.news-single__container{
+    margin-top: 64px;
+    margin-bottom: 120px;
+}
+
+.news-single__title{
+    position: relative;
+    padding-bottom: 8px;
+    margin-bottom: 32px;
+
+    &::after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px; 
+        background: linear-gradient(to right, v.$primary-color,v.$primary-color-dark f.vw(250px),v.$text-color f.vw(500px));
+    }
+
+    h2{
+        margin-top: 1rem;
+        @include m.responsive(sm){
+            font-size: f.rem(16);
+        }
+    }
+}
+
+.news-single__content{
+    .news-single__image{
+        width: 80%;
+        // height: f.vw(640px);
+        margin-inline: auto;
+        margin-bottom: 32px;
+        @include m.responsive(sm){
+            height: auto;
+        }
+
+    img{
+        object-fit: cover;
+        }
+    }
+    
+
+    .news-single__btn{
+        margin-block: 64px;
+        text-align: center;
+    }
+}

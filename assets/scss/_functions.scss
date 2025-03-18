@@ -1,0 +1,28 @@
+@use "sass:math";
+@use "sass:map";
+@use "./variables" as v;
+
+// フォントサイズのrem変換、pxのvw変換
+html {
+    font-size: #{v.$baseFontSize}px; // pxを明示的に結合
+}
+
+@function rem($pixels, $context: v.$baseFontSize) {
+    @return math.div($pixels, $context) * 1rem; // math.div()を使用
+}
+
+@function vw($px, $base: 1440px) {
+    @if (unit($px) != 'px') {
+        @warn 'vw()の引数には px 単位の値を指定してください';
+        @return $px;
+    }
+
+    // Sassの計算を完了させてからvwを適用
+    @return math.div($px, $base) * 100vw;
+}
+
+// font-family指定
+@function font-family($key) {
+    @return map.get(v.$font, $key);
+  }
+  

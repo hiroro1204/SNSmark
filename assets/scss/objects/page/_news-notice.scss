@@ -1,0 +1,68 @@
+@use "../../variables" as v;
+@use "../../functions" as f;
+@use "../../mixins" as m;
+
+.news__page-title{
+    background-image: url(/assets/images/bg_title_08.jpg);
+    background-position: bottom;
+}
+
+.news__container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1199px;
+    margin-top: 64px;
+    @include m.responsive(sm){
+        flex-direction: column-reverse;
+    }
+    
+    .news__list{
+        width: 80%;
+        @include m.responsive(sm){
+            width: 100%;
+        }
+    }
+    
+    .news__year-select{
+        width: 15%;
+        @include m.responsive(sm){
+            margin-bottom: 24px;
+        }
+    }
+}
+
+.year-dropdown {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    
+    &::after {
+        position: absolute;
+        right: 15px;
+        width: 10px;
+        height: 7px;
+        background-color: #535353;
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+        content: '';
+        pointer-events: none;
+    }
+
+    select{
+       appearance: none;
+       -webkit-appearance: none; /* Safari用 */
+       -moz-appearance: none; /* Firefox用 */
+       min-width: 120px;
+       height: 2.8em;
+       padding: .4em calc(.8em + 30px) .4em .8em;
+       background-color:v.$primary-color-light;
+       color: #333333;
+       font-size: 1em;
+       cursor: pointer;
+    }
+}
+
+// noticeページ
+
+.notice__page-title{
+    background-image: url(/assets/images/bg_title_05.jpg);
+}

@@ -1,0 +1,12 @@
+@use "./variables" as vars;
+
+@mixin responsive($breakpoint) {
+  @if map-has-key(vars.$breakpoints, $breakpoint) {
+    @media screen and #{inspect(map-get(vars.$breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @error "指定されたブレークポイントは定義されていません。" +
+           "指定できるブレークポイントは次のとおりです。 -> #{map-keys(vars.$breakpoints)}";
+  }
+}

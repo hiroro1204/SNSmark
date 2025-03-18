@@ -1,0 +1,70 @@
+@use "../../variables" as v;
+@use "../../functions" as f;
+@use "../../mixins" as m;
+
+.company__page-title{
+    background-image: url(/assets/images/bg_title_02.jpg);
+}
+
+.message{
+    .message__content{
+        display: flex;
+        justify-content: space-around;
+        margin-block: 96px;
+        @include m.responsive(sm){
+            flex-direction: column;
+        }
+    }
+
+    .message__image{
+        width: 30%;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include m.responsive(sm){
+            width: 100%;
+        }
+    }
+    
+    .message__text{
+        width: 60%;
+        @include m.responsive(sm){
+            width: 100%;
+        }
+        
+        .message__author{
+            text-align: right;
+            margin-top: 1rem;
+        }
+    }
+}
+
+.profile{
+    .profile__list{
+        margin-block: 48px;
+    }
+    
+    .profile__item{
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 2rem;
+        @include m.responsive(sm){
+            font-size: f.rem(15);
+        }
+        
+        .profile__label{
+            width: 30%;
+            padding-left: 2rem;
+            @include m.responsive(sm){
+                padding-left: 0;
+            }
+            
+        }
+
+        .profile__text{
+            width: 65%;
+        }
+    }
+
+}

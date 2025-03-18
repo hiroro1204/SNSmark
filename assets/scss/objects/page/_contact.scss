@@ -1,0 +1,132 @@
+@use "../../variables" as v;
+@use "../../functions" as f;
+@use "../../mixins" as m;
+
+
+.contact__page-title{
+    background-image: url(/assets/images/bg_title_06.jpg);
+    background-size: 140%;
+    background-position: left;
+    @include m.responsive(sm){
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+.contact__container{
+    margin-block: 64px;
+    max-width: 1199px;
+    margin-inline: auto;
+}
+
+.contact__tab-list{
+    display: flex;
+    justify-content: center;
+
+    .contact__tab{
+        max-width: 200px;
+        width: 100%;
+
+        // タブクリック時のスタイル
+        &.active .toggle-btn--contact{
+            color: #ffffff;
+            background-color:v.$secondary-color;    
+        }
+    }
+}
+
+.contact__form-area{
+    display: none;
+    margin-top: 64px;
+
+
+    &.is-active{
+        display: block;
+        animation-name: displayAnime;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes displayAnime{
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+    
+.contact__field{
+    display: flex;
+    flex-direction: column;
+    padding-block: 16px;
+    border-bottom: 1px solid v.$primary-color;
+
+    &.contact__field--agreement{
+        flex-direction: row;
+        border-bottom:none ;
+
+    }
+
+    .contact__label{
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+
+        &.contact__label--agreement{
+            margin-bottom: 0;
+            margin-left: 8px;
+        }
+    }
+
+    .contact__input,
+    .contact__select,
+    .contact__textarea{
+        width: 100%;
+        border: 1px solid black;
+        padding: 8px 16px;
+        border-radius: 3px;
+    }
+
+}
+
+.contact__field--agreement{
+    .contact__link{
+        border-bottom: 1px solid v.$secondary-color;}
+}
+    
+
+
+.contact__btn{
+    text-align: center;
+    margin-block: 48px;
+}
+
+
+.contact--individual{
+
+    .contact__text--individual{
+        margin-bottom: 48px;
+    }
+
+    .attention{
+        display: inline-block;
+        font-size:f.rem(20);
+        text-decoration: underline v.$primary-color 3px;
+        margin-bottom: 32px;
+        @include m.responsive(sm){
+            font-size: f.rem(16);
+        }
+    }
+
+    .contact__list--individual{
+        list-style-position: inside;
+    }
+
+    .contact__item--individual{
+        margin-bottom: 1rem;
+        @include m.responsive(sm){
+            font-size: f.rem(14);
+        }
+    }
+}

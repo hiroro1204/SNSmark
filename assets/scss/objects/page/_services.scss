@@ -1,0 +1,76 @@
+@use "../../variables" as v;
+@use "../../functions" as f;
+@use "../../mixins" as m;
+
+.services__page-title{
+    background-image: url(/assets/images/bg_title_03.jpg);
+}
+
+.services__heading{
+    margin-block: 64px;
+    text-align: center;
+
+    .heading__text{
+        margin-top: 1rem;
+    }
+}
+
+.section-title__text--en.services__list-title{
+    font-family: v.$font_emphasis-ja;
+    font-weight: bold;
+    font-size: f.rem(28);
+    @include m.responsive(sm){
+        font-size: f.rem(20);
+    }
+    
+}
+
+.services__content{
+    max-width: 1199px;
+    margin: 0 auto;
+    
+}
+.services__content-heading{
+    font-size: f.rem(20);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    @include m.responsive(sm){
+        font-size: f.rem(18);
+    }
+}
+
+.services__content-container{
+    display: flex;
+    margin-block:48px ;
+    @include m.responsive(md){
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-block: 24px;
+    }
+
+    img{
+        width: 240px;
+        height: 240px;
+        object-fit: cover;
+    }
+
+    .services__content-body{
+        padding-inline: 5%;
+        @include m.responsive(md){
+            margin-top: 20px;
+        }
+
+        .services__content-btn{
+            margin-block: 40px;
+            @include m.responsive(md){
+                text-align: center;
+            }
+
+            .btn{
+                @include m.responsive(md){
+                    font-size: f.rem(14);
+                }
+            }
+        }
+    }
+}

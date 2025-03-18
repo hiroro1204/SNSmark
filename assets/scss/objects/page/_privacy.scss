@@ -1,0 +1,24 @@
+@use "../../variables" as v;
+@use "../../functions" as f;
+@use "../../mixins" as m;
+
+.privacy__content{
+    margin-top: 64px;
+
+    .list:first-of-type{
+        margin-top: 48px;
+    }
+
+    .list dt{
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .list dd{
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+        @include m.responsive(sm){
+            font-size: f.rem(14);
+        }
+    }
+}
