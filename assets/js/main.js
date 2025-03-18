@@ -35,6 +35,22 @@ document.querySelectorAll('.accordion-header').forEach(button => {
 });
 
 
+// スポンサーページのタブ切り替え
+
+const toggles = document.querySelectorAll('.toggle-btn')
+
+if (toggles.length > 0){
+  toggles[0].classList.add('active')
+}
+
+toggles.forEach(toggle =>{
+  toggle.addEventListener('click',function(){
+    toggles.forEach(btn => btn.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+
 // contactページのタブ切り替え
 
 // 任意のタブにURLからリンクするための設定
