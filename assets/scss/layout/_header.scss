@@ -2,198 +2,201 @@
 @use "../functions" as f;
 @use "../mixins" as m;
 
-#header{
-    background-color: v.$background-color;
-    padding: 40px 40px;
-    position: fixed;
-    z-index:10;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    overflow-y:hidden;
+#header {
+  background-color: v.$background-color;
+  padding: 40px 40px;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-    @include m.responsive(lg){
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 40px;
-    }
-
-    .header__logo {
-        text-align: center;
-        margin-bottom: 32px;
-        z-index: 20;
-        @include m.responsive(lg){
-            max-width: 100px;
-            margin: 0;
-        }
-        
-        @include m.responsive(sm){
-            max-width: 80px;
-            margin: 0;
-        }
-
-        img{
-            display: inline-block;
-            vertical-align: middle;
-        }
-    }
-
-}
-
-.header__nav{
-    @include m.responsive(lg){
-        display: none;    
-    }
-    
-    .nav__list{
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: f.rem(24);
-    }
-}
-
-.nav__item{
-    width: 100%;
-    position: relative;
-    font-weight: bold;
-    z-index: 2;
-    &:nth-child(n+3):nth-child(-n+5){
-        margin-left: 1rem;
-        font-weight: normal
-    }
-    
-    @include m.responsive(lg){
-        font-size: f.rem(20);
-        
-        &:nth-child(-n+2)::before,
-        &:nth-child(n+6)::before{
-            content: "";
-            position: absolute;
-            top: calc(50% - 8px);
-            left: -1rem;
-            width: 2px;
-            height: 16px;
-            background-color: v.$secondary-color;
-        }
-    }
-
-    @include m.responsive(sm){
-        font-size: f.rem(16);
-    }
-
-    &:hover .nav__link{
-        border-bottom: 3px dotted v.$secondary-color;
-    }
-}
-
-.nav__link{
-    padding-bottom: 4px;
-}
-
-
-.header__mobile-menu--cover{
-    visibility: hidden;
-
-}
-
-.header__hamburger{
-    visibility: hidden;
+  @include m.responsive(lg) {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    background: transparent;
-    height: 100%;
-    position: relative;
-    z-index: 30;
-    transition: all 0.3s ease ;
-    @include m.responsive(lg){
-        visibility: visible;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+  }
+
+  .header__logo {
+    text-align: center;
+    margin-bottom: 32px;
+    z-index: 20;
+    @include m.responsive(lg) {
+      margin: 0;
     }
 
-    span {
-        height: 1px;
-        background: v.$secondary-color;
-        display: block;
-        transition: all 0.3s ease;
-        
-        &:first-child{
-            width: 32px;
-        }
-        
-        &:last-child{
-            width: 24px;
-        }
+    img {
+      max-width: 150px;
+      display: inline-block;
+      vertical-align: middle;
+      @include m.responsive(lg) {
+        max-width: 100px;
+      }
+      @include m.responsive(sm) {
+        max-width: 80px;
+      }
     }
+  }
+}
+
+.header__nav {
+  @include m.responsive(lg) {
+    display: none;
+  }
+
+  .nav__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: f.rem(20);
+  }
+}
+
+.nav__item {
+  width: 100%;
+  position: relative;
+  font-size: f.rem(15);
+  font-weight: bold;
+  z-index: 2;
+  &:nth-child(n + 3):nth-child(-n + 5) {
+    margin-left: 1rem;
+    font-weight: normal;
+  }
+
+  @include m.responsive(lg) {
+    font-size: f.rem(20);
+
+    &:nth-child(-n + 2)::before,
+    &:nth-child(n + 6)::before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 8px);
+      left: -1rem;
+      width: 2px;
+      height: 16px;
+      background-color: v.$secondary-color;
+    }
+  }
+
+  @include m.responsive(sm) {
+    font-size: f.rem(16);
+  }
+
+  &:hover .nav__link {
+    border-bottom: 3px dotted v.$secondary-color;
+  }
+}
+
+.nav__link {
+  padding-bottom: 4px;
+}
+
+.header__mobile-menu--cover {
+  visibility: hidden;
+}
+
+.header__hamburger {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  background: transparent;
+  height: 100%;
+  position: relative;
+  z-index: 30;
+  transition: all 0.3s ease;
+  @include m.responsive(lg) {
+    visibility: visible;
+  }
+
+  span {
+    height: 1px;
+    background: v.$secondary-color;
+    display: block;
+    transition: all 0.3s ease;
+
+    &:first-child {
+      width: 32px;
+    }
+
+    &:last-child {
+      width: 24px;
+    }
+  }
 }
 
 @keyframes move-stripe {
-    0% {  background-position-x: 0;  }
-    100% {  background-position-x: -32px;  }
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -32px;
+  }
 }
 
-.menu-open{
-    & .header__mobile-menu--cover{
-        @include m.responsive(lg){
-                visibility: visible;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: fixed;
-                z-index: 10;
-                top:0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background-image:url(../../../../SNSmark/assets/images/bg_hamburger-menu.gif);
-                background-repeat: repeat;
-                background-size: 8px;
-                cursor: pointer;
-                animation: move-stripe 1s infinite linear;
-                
-        }        
+.menu-open {
+  & .header__mobile-menu--cover {
+    @include m.responsive(lg) {
+      visibility: visible;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-image: url(../../../../SNSmark/assets/images/bg_hamburger-menu.gif);
+      background-repeat: repeat;
+      background-size: 8px;
+      cursor: pointer;
+      animation: move-stripe 1s infinite linear;
+    }
+  }
+
+  & .header__nav {
+    @include m.responsive(lg) {
+      display: block;
+    }
+  }
+
+  & .nav__list {
+    @include m.responsive(lg) {
+      position: fixed;
+      width: 70%;
+      margin-left: 2rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 20;
+      grid-template-columns: repeat(2, minmax(200px, 300px));
+      grid-template-rows: repeat(6, auto);
+      grid-auto-flow: column;
+      gap: 1.5rem 5rem;
+    }
+    @include m.responsive(sm) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-auto-flow: row;
+      transform: translate(0, 0);
+      left: 25%;
+      top: 20%;
+    }
+  }
+
+  & .header__hamburger span {
+    &:first-child {
+      transform: rotate(-45deg) translate(-8px, 8px);
     }
 
-    & .header__nav{
-        @include m.responsive(lg){
-            display: block;
-        }
+    &:last-child {
+      width: 32px;
+      transform: rotate(45deg);
     }
-
-    & .nav__list{
-        @include m.responsive(lg){
-            position: fixed;
-            width: 70%;
-            margin-left: 2rem;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 20;
-            grid-template-columns: repeat(2, minmax(200px, 300px));
-            grid-template-rows: repeat(6, auto);
-            grid-auto-flow: column;
-            gap: 1.5rem 5rem;
-        }
-        @include m.responsive(sm){
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
-            grid-auto-flow: row;
-            transform: translate(0, 0);
-            left: 25%;
-            top: 20%;
-        }
-    }
-
-    & .header__hamburger span{
-        &:first-child{
-            transform: rotate(-45deg) translate(-8px,8px);
-        }
-        
-        &:last-child{
-            width: 32px;
-            transform: rotate(45deg) ;
-
-        }
-    }
+  }
 }
