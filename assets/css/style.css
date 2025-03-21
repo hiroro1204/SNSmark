@@ -1204,13 +1204,14 @@ body {
   }
 }
 .top-about .about__details .about__text {
-  width: 90%;
+  width: 95%;
   padding: 24px;
   background-color: #fafafa;
 }
 @media screen and (max-width: 767px) {
   .top-about .about__details .about__text {
     position: static;
+    width: 100%;
   }
 }
 .top-about .about__details .about__text p {
@@ -1281,7 +1282,7 @@ body {
 }
 @media screen and (max-width: 767px) {
   .top-news .top-news__block {
-    width: 95%;
+    width: 100%;
   }
 }
 .top-news .top-news__block:first-child {

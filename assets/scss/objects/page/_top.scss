@@ -176,11 +176,12 @@
     }
 
     .about__text {
-      width: 90%;
+      width: 95%;
       padding: 24px;
       background-color: #fafafa;
       @include m.responsive(md) {
         position: static;
+        width: 100%;
       }
 
       p {
@@ -248,7 +249,7 @@
   .top-news__block {
     width: 48%;
     @include m.responsive(md) {
-      width: 95%;
+      width: 100%;
     }
 
     &:first-child {
