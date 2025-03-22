@@ -101,6 +101,11 @@ body {
     font-size: 0.875rem;
   }
 }
+@media screen and (max-width: 575px) {
+  body li {
+    font-size: 0.875rem;
+  }
+}
 
 @keyframes modal-video {
   from {
@@ -243,7 +248,7 @@ body {
   display: flex;
 }
 .site #header {
-  width: 250px;
+  width: 220px;
 }
 @media screen and (max-width: 991px) {
   .site #header {
@@ -257,8 +262,8 @@ body {
   }
 }
 .site .outer {
-  width: calc(100% - 250px);
-  margin-left: 250px;
+  width: calc(100% - 220px);
+  margin-left: 220px;
 }
 @media screen and (max-width: 991px) {
   .site .outer {
@@ -271,6 +276,11 @@ body {
   margin-bottom: 64px;
 }
 
+@media screen and (max-width: 767px) {
+  .sp-line-break {
+    display: block;
+  }
+}
 .btn {
   display: inline-block;
   width: 250px;
@@ -426,11 +436,6 @@ body {
 @media screen and (max-width: 1199px) {
   .subheading {
     font-size: 1.5rem;
-  }
-}
-@media screen and (max-width: 575px) {
-  .subheading {
-    font-size: 1.25rem;
   }
 }
 
@@ -1619,6 +1624,9 @@ body {
     margin-top: 20px;
   }
 }
+.group__content-container .group__content-body .content__text {
+  margin-bottom: 1rem;
+}
 .group__content-container .group__content-body .group__content-btn {
   margin-block: 40px;
 }
@@ -1755,6 +1763,9 @@ body {
   .services__content-container .services__content-body {
     margin-top: 20px;
   }
+}
+.services__content-container .services__content-body .content__text {
+  margin-bottom: 1rem;
 }
 .services__content-container .services__content-body .services__content-btn {
   margin-block: 40px;
@@ -2070,6 +2081,11 @@ body {
 .recruit__main .section-title--secondary {
   margin-bottom: 64px;
 }
+@media screen and (max-width: 767px) {
+  .recruit__main .section-title--secondary {
+    margin-bottom: 40px;
+  }
+}
 
 .recruit__page-title {
   background-image: url(../../../../../SNSmark/assets/images/bg_title_07.jpg);
@@ -2209,6 +2225,14 @@ body {
 @media screen and (max-width: 575px) {
   .requirements .requirements__item .description {
     width: 100%;
+  }
+}
+.requirements .requirements__item .description .description__subtitle--margin {
+  margin-top: 1rem;
+}
+@media screen and (max-width: 575px) {
+  .requirements .requirements__item .description li {
+    font-size: 0.875rem;
   }
 }
 .requirements .requirements__item .description span {
