@@ -1333,6 +1333,9 @@ body {
 .slogan .slogan__inner .slogan__subheading {
   margin-top: 40px;
 }
+.slogan .slogan__description p {
+  margin-bottom: 1rem;
+}
 
 @media screen and (max-width: 767px) {
   .mission {
@@ -1459,6 +1462,9 @@ body {
   .guidelines__list .guidelines__label {
     font-size: 1.125rem;
   }
+}
+.guidelines__list .guidelines__label span {
+  margin-inline: 0.5rem;
 }
 @media screen and (max-width: 575px) {
   .guidelines__list .guidelines__text {
