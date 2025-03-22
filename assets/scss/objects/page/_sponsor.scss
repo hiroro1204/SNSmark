@@ -2,55 +2,54 @@
 @use "../../functions" as f;
 @use "../../mixins" as m;
 
-.sponsor__page-title{
-    background-image:url(../../../../../SNSmark/assets/images/bg_title_04.jpg);
+.sponsor__page-title {
+  background-image: url(../../../../../SNSmark/assets/images/bg_title_04.jpg);
 }
 
-.sponsor__container{
-    margin-block: 64px;
-    @include m.responsive(sm){
-        margin-top: 32px;
-    }
+.sponsor__container {
+  margin-block: 64px;
+  @include m.responsive(sm) {
+    margin-top: 32px;
+  }
 }
 
-.sponsor__btn-list{
-    display: grid;
-    gap:16px;
-    grid-template-columns: repeat(auto-fit,minmax(120px,150px));
-    justify-content: center;
-    @include m.responsive(sm){
-        grid-template-columns: repeat(2,1fr);
-    }
+.sponsor__btn-list {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
+  justify-content: center;
+  @include m.responsive(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .sponsor__card-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
-    margin-top: 64px;
-    @include m.responsive(sm){
-        margin-top: 32px;
-    }
-  
-    .sponsor__card-item {
-      min-height: 420px;
-      transition: all 0.3s ease-out;
-  
-      &:hover {
-        transform: translateY(-4px);
-      }
-    }
-  
-    .sponsor__card-title {
-      margin-bottom: 0.5rem;
-    }
-  
-    .sponsor__card-detail {
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 4;
-      line-clamp: 4;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 64px;
+  @include m.responsive(sm) {
+    margin-top: 32px;
+  }
+
+  .sponsor__card-item {
+    min-height: 420px;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+      transform: translateY(-4px);
     }
   }
-  
+
+  .sponsor__card-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .sponsor__card-detail {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+}

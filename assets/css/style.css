@@ -1929,7 +1929,7 @@ body {
   }
 }
 .sponsor__card-list .sponsor__card-item {
-  min-height: 320px;
+  min-height: 420px;
   transition: all 0.3s ease-out;
 }
 .sponsor__card-list .sponsor__card-item:hover {
