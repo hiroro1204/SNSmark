@@ -212,7 +212,7 @@
     }
 
     .services__image {
-      width: 50%;
+      width: 32%;
       margin-top: f.vw(120px);
       @include m.responsive(md) {
         width: 100%;
@@ -220,7 +220,7 @@
     }
 
     .services__inner {
-      width: 50%;
+      width: 68%;
       @include m.responsive(md) {
         width: 100%;
       }
